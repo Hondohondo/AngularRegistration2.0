@@ -9,7 +9,38 @@
   <script src="js/lib/angular/angular-route.min.js"></script>
   <script src="js/lib/angular/angular-animate.min.js"></script>
 
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js">
+
+  </script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      // apiKey: "AIzaSyCk0p6FLRfyqBzpSpS7Pn1NWRBoMzf7n9M",
+      // authDomain: "registrationangularjs.firebaseapp.com",
+      // databaseURL: "https://registrationangularjs.firebaseio.com",
+      // storageBucket: "registrationangularjs.appspot.com",
+      // messagingSenderId: "1036698474463"
+      apiKey: "AIzaSyCk0p6FLRfyqBzpSpS7Pn1NWRBoMzf7n9M",
+      authDomain: "registrationangularjs.firebaseapp.com",
+      databaseURL: "https://registrationangularjs.firebaseio.com",
+      projectId: "registrationangularjs",
+      storageBucket: "registrationangularjs.appspot.com",
+      messagingSenderId: "1036698474463",
+      appId: "1:1036698474463:web:be7a8f413f807ca24c166a",
+      measurementId: "G-FJXG41CT6M"
+
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js">
+
+  </script>
+
   <script src="js/app.js"></script>
+  <script src="js/services/authentication.js"></script>
   <script src="js/controllers/registration.js"></script>
   <script src="js/controllers/success.js"></script>
 
@@ -23,6 +54,11 @@
 
     </nav>
   </header>
+
+  <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
+    <span class="userinfo"> Hi {{currentUser.firstname}}</span>
+    <a ng-href="#/login" ng-click="logout()">logout</a>
+  </div>
 
   <main class="main" ng-view>
 
